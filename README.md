@@ -2,7 +2,7 @@
 
 A basic React stopwatch with a start, stop, resume and reset functions.
 
-<!-- Go **[here](https://admiring-cori-0b0a58.netlify.com/)** for live demo. -->
+Go **[here](https://stupefied-nobel-09be5a.netlify.com/)** for live demo.
 
 ## 👨‍💻 Tech stack
 
