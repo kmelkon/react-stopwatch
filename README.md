@@ -1,7 +1,5 @@
 # React stopwatch
 
-### A simple react stopwatch
-
 A basic React stopwatch with a start, stop, resume and reset functions.
 
 <!-- Go **[here](https://admiring-cori-0b0a58.netlify.com/)** for live demo. -->
@@ -9,7 +7,8 @@ A basic React stopwatch with a start, stop, resume and reset functions.
 ## 👨‍💻 Tech stack
 
 - [React](https://reactjs.org/) - A javascript library for building user interfaces
-- [create-react-app](https://github.com/facebook/create-react-app) - React project boilerplate
+- [create-react-app](https://github.com/facebook/create-react-app) A boilerplate for react apps
+- [Style Components](https://www.styled-components.com/) A CSS-in-JS library
 
 ## Getting Started
 
@@ -41,7 +40,7 @@ npm install
 
 ## ⏰ TODO
 
-- [ ] styling via style components
+- [x] styling via style components
 - [ ] Add a reusable header component
 
 ## 🖐 Contributing

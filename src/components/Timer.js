@@ -1,24 +1,59 @@
 import React, { Component } from "react";
 import ms from "pretty-ms";
+import styled, { css } from "styled-components";
 
+// STYLES
+//Containers
+const Container = styled.div`
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+`;
+const TimeContainer = styled.div`
+  font-size: 8rem;
+  font-weight: 700;
+`;
+const ButtonsContainer = styled.div``;
+// Button
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  color: palevioletred;
+  /* margin: 0 1em; */
+  padding: 0.25em 1em;
+  font-size: 1.5rem;
+  :hover {
+    /* background: #f4f4f4; */
+  }
+
+  ${props =>
+    props.primary &&
+    css`
+      background: palevioletred;
+      color: white;
+    `};
+`;
+
+// FUNCTIONALITY
 class Timer extends Component {
   state = {
     hasStarted: false,
     time: 0,
-    start: 0,
-    hh: "",
-    mm: "",
-    ss: ""
+    start: 0
   };
 
-  handleChange = e => {
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value
-    });
-  };
+  // handleChange = e => {
+  //   const target = e.target;
+  //   const value = target.value;
+  //   const name = target.name;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
 
   handleStartClick = () => {
     const { hasStarted } = this.state;
@@ -45,10 +80,10 @@ class Timer extends Component {
     });
   };
   render() {
-    const { hasStarted, hh, mm, ss, time, start } = this.state;
+    const { hasStarted, time, start } = this.state;
 
     return (
-      <div>
+      <Container>
         {/* <input
           type="number"
           placeholder="hh"
@@ -70,16 +105,22 @@ class Timer extends Component {
           value={ss}
           onChange={this.handleChange}
         /> */}
-        {ms(time)}
-        {time == 0 && <button onClick={this.handleStartClick}>Start</button>}
-        {hasStarted && <button onClick={this.handleStopClick}>Stop</button>}
-        {time !== 0 && !hasStarted ? (
-          <button onClick={this.handleResetClick}>Reset</button>
-        ) : null}
-        {time !== 0 && !hasStarted ? (
-          <button onClick={this.handleStartClick}>resume</button>
-        ) : null}
-      </div>
+        <TimeContainer>{ms(time)}</TimeContainer>
+        <ButtonsContainer>
+          {time == 0 && (
+            <Button primary onClick={this.handleStartClick}>
+              Start
+            </Button>
+          )}
+          {hasStarted && <Button onClick={this.handleStopClick}>Stop</Button>}
+          {time !== 0 && !hasStarted ? (
+            <Button onClick={this.handleResetClick}>Reset</Button>
+          ) : null}
+          {time !== 0 && !hasStarted ? (
+            <Button onClick={this.handleStartClick}>resume</Button>
+          ) : null}
+        </ButtonsContainer>
+      </Container>
     );
   }
 }
